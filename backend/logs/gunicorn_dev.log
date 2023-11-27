@@ -1,0 +1,1029 @@
+[2023-11-15 14:55:27 +0800] [3761] [DEBUG] Current configuration:
+  config: server_config.py
+  wsgi_app: backend.wsgi:application
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 2
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: True
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /root/github/base/base-django/backend
+  daemon: True
+  raw_env: []
+  pidfile: run/gunicorn_dev.pid
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: logs/gunicorn_dev.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs/gunicorn_dev.log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f168b328860>
+  on_reload: <function OnReload.on_reload at 0x7f168b3289a0>
+  when_ready: <function WhenReady.when_ready at 0x7f168b328ae0>
+  pre_fork: <function Prefork.pre_fork at 0x7f168b328c20>
+  post_fork: <function Postfork.post_fork at 0x7f168b328d60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f168b328ea0>
+  worker_int: <function WorkerInt.worker_int at 0x7f168b328fe0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f168b329120>
+  pre_exec: <function PreExec.pre_exec at 0x7f168b329260>
+  pre_request: <function PreRequest.pre_request at 0x7f168b3293a0>
+  post_request: <function PostRequest.post_request at 0x7f168b329440>
+  child_exit: <function ChildExit.child_exit at 0x7f168b329580>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f168b3296c0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f168b329800>
+  on_exit: <function OnExit.on_exit at 0x7f168b329940>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2023-11-15 14:55:27 +0800] [3761] [INFO] Starting gunicorn 20.1.0
+[2023-11-15 14:55:27 +0800] [3761] [DEBUG] Arbiter booted
+[2023-11-15 14:55:27 +0800] [3761] [INFO] Listening at: http://0.0.0.0:8000 (3761)
+[2023-11-15 14:55:27 +0800] [3761] [INFO] Using worker: sync
+[2023-11-15 14:55:27 +0800] [3763] [INFO] Booting worker with pid: 3763
+[2023-11-15 14:55:27 +0800] [3764] [INFO] Booting worker with pid: 3764
+[2023-11-15 14:55:27 +0800] [3761] [DEBUG] 2 workers
+[2023-11-15 06:55:27 +0000] [3763] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/module_loading.py", line 16, in cached_import
+    return getattr(module, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'permission.middlewares' has no attribute 'ExtractTokenMiddleware'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+                ^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+                    ^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1206, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1178, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1149, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/github/base/base-django/backend/backend/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+                  ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+    return WSGIHandler()
+           ^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/wsgi.py", line 125, in __init__
+    self.load_middleware()
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/base.py", line 40, in load_middleware
+    middleware = import_string(middleware_path)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/module_loading.py", line 32, in import_string
+    raise ImportError(
+ImportError: Module "permission.middlewares" does not define a "ExtractTokenMiddleware" attribute/class
+[2023-11-15 06:55:27 +0000] [3763] [INFO] Worker exiting (pid: 3763)
+[2023-11-15 06:55:27 +0000] [3764] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/module_loading.py", line 16, in cached_import
+    return getattr(module, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'permission.middlewares' has no attribute 'ExtractTokenMiddleware'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+                ^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+                    ^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1206, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1178, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1149, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/github/base/base-django/backend/backend/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+                  ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+    return WSGIHandler()
+           ^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/wsgi.py", line 125, in __init__
+    self.load_middleware()
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/base.py", line 40, in load_middleware
+    middleware = import_string(middleware_path)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/module_loading.py", line 32, in import_string
+    raise ImportError(
+ImportError: Module "permission.middlewares" does not define a "ExtractTokenMiddleware" attribute/class
+[2023-11-15 06:55:27 +0000] [3764] [INFO] Worker exiting (pid: 3764)
+[2023-11-15 14:55:27 +0800] [3761] [WARNING] Worker with pid 3764 was terminated due to signal 15
+[2023-11-15 14:55:28 +0800] [3761] [INFO] Shutting down: Master
+[2023-11-15 14:55:28 +0800] [3761] [INFO] Reason: Worker failed to boot.
+[2023-11-15 14:56:14 +0800] [4143] [DEBUG] Current configuration:
+  config: server_config.py
+  wsgi_app: backend.wsgi:application
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 2
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: True
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /root/github/base/base-django/backend
+  daemon: True
+  raw_env: []
+  pidfile: run/gunicorn_dev.pid
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: logs/gunicorn_dev.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: logs/gunicorn_dev.log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f92e51ec860>
+  on_reload: <function OnReload.on_reload at 0x7f92e51ec9a0>
+  when_ready: <function WhenReady.when_ready at 0x7f92e51ecae0>
+  pre_fork: <function Prefork.pre_fork at 0x7f92e51ecc20>
+  post_fork: <function Postfork.post_fork at 0x7f92e51ecd60>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f92e51ecea0>
+  worker_int: <function WorkerInt.worker_int at 0x7f92e51ecfe0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f92e51ed120>
+  pre_exec: <function PreExec.pre_exec at 0x7f92e51ed260>
+  pre_request: <function PreRequest.pre_request at 0x7f92e51ed3a0>
+  post_request: <function PostRequest.post_request at 0x7f92e51ed440>
+  child_exit: <function ChildExit.child_exit at 0x7f92e51ed580>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f92e51ed6c0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f92e51ed800>
+  on_exit: <function OnExit.on_exit at 0x7f92e51ed940>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2023-11-15 14:56:14 +0800] [4143] [INFO] Starting gunicorn 20.1.0
+[2023-11-15 14:56:14 +0800] [4143] [DEBUG] Arbiter booted
+[2023-11-15 14:56:14 +0800] [4143] [INFO] Listening at: http://0.0.0.0:8000 (4143)
+[2023-11-15 14:56:14 +0800] [4143] [INFO] Using worker: sync
+[2023-11-15 14:56:14 +0800] [4145] [INFO] Booting worker with pid: 4145
+[2023-11-15 14:56:15 +0800] [4149] [INFO] Booting worker with pid: 4149
+[2023-11-15 14:56:15 +0800] [4143] [DEBUG] 2 workers
+[2023-11-15 06:56:56 +0000] [4149] [DEBUG] GET /
+[2023-11-15 06:56:59 +0000] [4149] [ERROR] Error handling request /?vscodeBrowserReqId=1700031416074
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/base.py", line 313, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 663, in resolve
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1206, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1178, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1149, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/github/base/base-django/backend/backend/urls.py", line 1, in <module>
+    from common import views as common_views
+  File "/root/github/base/base-django/backend/common/views.py", line 6, in <module>
+    from common.mappers import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/__init__.py", line 1, in <module>
+    from .minio_mapper import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/minio_mapper.py", line 1, in <module>
+    from minio import Minio
+ModuleNotFoundError: No module named 'minio'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = response or self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 57, in inner
+    response = response_for_exception(request, exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 140, in response_for_exception
+    response = handle_uncaught_exception(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 181, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 66, in technical_500_response
+    html = reporter.get_traceback_html()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 396, in get_traceback_html
+    c = Context(self.get_traceback_data(), use_l10n=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 381, in get_traceback_data
+    c["raising_view_name"] = get_caller(self.request)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 99, in get_caller
+    resolver_match = resolve(request.path)
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 663, in resolve
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1206, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1178, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1149, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/github/base/base-django/backend/backend/urls.py", line 1, in <module>
+    from common import views as common_views
+  File "/root/github/base/base-django/backend/common/views.py", line 6, in <module>
+    from common.mappers import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/__init__.py", line 1, in <module>
+    from .minio_mapper import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/minio_mapper.py", line 1, in <module>
+    from minio import Minio
+ModuleNotFoundError: No module named 'minio'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = response or self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 57, in inner
+    response = response_for_exception(request, exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 140, in response_for_exception
+    response = handle_uncaught_exception(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 181, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 66, in technical_500_response
+    html = reporter.get_traceback_html()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 396, in get_traceback_html
+    c = Context(self.get_traceback_data(), use_l10n=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 381, in get_traceback_data
+    c["raising_view_name"] = get_caller(self.request)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 99, in get_caller
+    resolver_match = resolve(request.path)
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 663, in resolve
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1206, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1178, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1149, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/github/base/base-django/backend/backend/urls.py", line 1, in <module>
+    from common import views as common_views
+  File "/root/github/base/base-django/backend/common/views.py", line 6, in <module>
+    from common.mappers import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/__init__.py", line 1, in <module>
+    from .minio_mapper import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/minio_mapper.py", line 1, in <module>
+    from minio import Minio
+ModuleNotFoundError: No module named 'minio'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = response or self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 57, in inner
+    response = response_for_exception(request, exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 140, in response_for_exception
+    response = handle_uncaught_exception(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 181, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 66, in technical_500_response
+    html = reporter.get_traceback_html()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 396, in get_traceback_html
+    c = Context(self.get_traceback_data(), use_l10n=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 381, in get_traceback_data
+    c["raising_view_name"] = get_caller(self.request)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 99, in get_caller
+    resolver_match = resolve(request.path)
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 663, in resolve
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1206, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1178, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1149, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/github/base/base-django/backend/backend/urls.py", line 1, in <module>
+    from common import views as common_views
+  File "/root/github/base/base-django/backend/common/views.py", line 6, in <module>
+    from common.mappers import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/__init__.py", line 1, in <module>
+    from .minio_mapper import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/minio_mapper.py", line 1, in <module>
+    from minio import Minio
+ModuleNotFoundError: No module named 'minio'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = response or self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 57, in inner
+    response = response_for_exception(request, exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 140, in response_for_exception
+    response = handle_uncaught_exception(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 181, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 66, in technical_500_response
+    html = reporter.get_traceback_html()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 396, in get_traceback_html
+    c = Context(self.get_traceback_data(), use_l10n=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 381, in get_traceback_data
+    c["raising_view_name"] = get_caller(self.request)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 99, in get_caller
+    resolver_match = resolve(request.path)
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 663, in resolve
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1206, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1178, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1149, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/github/base/base-django/backend/backend/urls.py", line 1, in <module>
+    from common import views as common_views
+  File "/root/github/base/base-django/backend/common/views.py", line 6, in <module>
+    from common.mappers import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/__init__.py", line 1, in <module>
+    from .minio_mapper import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/minio_mapper.py", line 1, in <module>
+    from minio import Minio
+ModuleNotFoundError: No module named 'minio'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = response or self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 57, in inner
+    response = response_for_exception(request, exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 140, in response_for_exception
+    response = handle_uncaught_exception(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 181, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 66, in technical_500_response
+    html = reporter.get_traceback_html()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 396, in get_traceback_html
+    c = Context(self.get_traceback_data(), use_l10n=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 381, in get_traceback_data
+    c["raising_view_name"] = get_caller(self.request)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 99, in get_caller
+    resolver_match = resolve(request.path)
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 663, in resolve
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1206, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1178, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1149, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/github/base/base-django/backend/backend/urls.py", line 1, in <module>
+    from common import views as common_views
+  File "/root/github/base/base-django/backend/common/views.py", line 6, in <module>
+    from common.mappers import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/__init__.py", line 1, in <module>
+    from .minio_mapper import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/minio_mapper.py", line 1, in <module>
+    from minio import Minio
+ModuleNotFoundError: No module named 'minio'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = response or self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 57, in inner
+    response = response_for_exception(request, exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 140, in response_for_exception
+    response = handle_uncaught_exception(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 181, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 66, in technical_500_response
+    html = reporter.get_traceback_html()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 396, in get_traceback_html
+    c = Context(self.get_traceback_data(), use_l10n=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 381, in get_traceback_data
+    c["raising_view_name"] = get_caller(self.request)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 99, in get_caller
+    resolver_match = resolve(request.path)
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 663, in resolve
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1206, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1178, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1149, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/github/base/base-django/backend/backend/urls.py", line 1, in <module>
+    from common import views as common_views
+  File "/root/github/base/base-django/backend/common/views.py", line 6, in <module>
+    from common.mappers import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/__init__.py", line 1, in <module>
+    from .minio_mapper import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/minio_mapper.py", line 1, in <module>
+    from minio import Minio
+ModuleNotFoundError: No module named 'minio'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = response or self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 57, in inner
+    response = response_for_exception(request, exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 140, in response_for_exception
+    response = handle_uncaught_exception(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 181, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 66, in technical_500_response
+    html = reporter.get_traceback_html()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 396, in get_traceback_html
+    c = Context(self.get_traceback_data(), use_l10n=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 381, in get_traceback_data
+    c["raising_view_name"] = get_caller(self.request)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 99, in get_caller
+    resolver_match = resolve(request.path)
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 663, in resolve
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1206, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1178, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1149, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/github/base/base-django/backend/backend/urls.py", line 1, in <module>
+    from common import views as common_views
+  File "/root/github/base/base-django/backend/common/views.py", line 6, in <module>
+    from common.mappers import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/__init__.py", line 1, in <module>
+    from .minio_mapper import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/minio_mapper.py", line 1, in <module>
+    from minio import Minio
+ModuleNotFoundError: No module named 'minio'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = response or self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 57, in inner
+    response = response_for_exception(request, exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 140, in response_for_exception
+    response = handle_uncaught_exception(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 181, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 66, in technical_500_response
+    html = reporter.get_traceback_html()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 396, in get_traceback_html
+    c = Context(self.get_traceback_data(), use_l10n=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 381, in get_traceback_data
+    c["raising_view_name"] = get_caller(self.request)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 99, in get_caller
+    resolver_match = resolve(request.path)
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 663, in resolve
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1206, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1178, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1149, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/github/base/base-django/backend/backend/urls.py", line 1, in <module>
+    from common import views as common_views
+  File "/root/github/base/base-django/backend/common/views.py", line 6, in <module>
+    from common.mappers import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/__init__.py", line 1, in <module>
+    from .minio_mapper import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/minio_mapper.py", line 1, in <module>
+    from minio import Minio
+ModuleNotFoundError: No module named 'minio'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = response or self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 57, in inner
+    response = response_for_exception(request, exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 140, in response_for_exception
+    response = handle_uncaught_exception(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 181, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 66, in technical_500_response
+    html = reporter.get_traceback_html()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 396, in get_traceback_html
+    c = Context(self.get_traceback_data(), use_l10n=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 381, in get_traceback_data
+    c["raising_view_name"] = get_caller(self.request)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 99, in get_caller
+    resolver_match = resolve(request.path)
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 663, in resolve
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1206, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1178, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1149, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/github/base/base-django/backend/backend/urls.py", line 1, in <module>
+    from common import views as common_views
+  File "/root/github/base/base-django/backend/common/views.py", line 6, in <module>
+    from common.mappers import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/__init__.py", line 1, in <module>
+    from .minio_mapper import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/minio_mapper.py", line 1, in <module>
+    from minio import Minio
+ModuleNotFoundError: No module named 'minio'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 136, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 179, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/wsgi.py", line 131, in __call__
+    response = self.get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/base.py", line 140, in get_response
+    response = self._middleware_chain(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 57, in inner
+    response = response_for_exception(request, exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 140, in response_for_exception
+    response = handle_uncaught_exception(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/core/handlers/exception.py", line 181, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 66, in technical_500_response
+    html = reporter.get_traceback_html()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 396, in get_traceback_html
+    c = Context(self.get_traceback_data(), use_l10n=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 381, in get_traceback_data
+    c["raising_view_name"] = get_caller(self.request)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/views/debug.py", line 99, in get_caller
+    resolver_match = resolve(request.path)
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 663, in resolve
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/base-django/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1206, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1178, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1149, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/github/base/base-django/backend/backend/urls.py", line 1, in <module>
+    from common import views as common_views
+  File "/root/github/base/base-django/backend/common/views.py", line 6, in <module>
+    from common.mappers import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/__init__.py", line 1, in <module>
+    from .minio_mapper import MinioMapper
+  File "/root/github/base/base-django/backend/common/mappers/minio_mapper.py", line 1, in <module>
+    from minio import Minio
+ModuleNotFoundError: No module named 'minio'
+127.0.0.1 - - [15/Nov/2023:06:56:59 +0000] "GET /?vscodeBrowserReqId=1700031416074 HTTP/1.1" 500 0 "-" "-"
+[2023-11-15 14:57:27 +0800] [4143] [CRITICAL] WORKER TIMEOUT (pid:4145)
+[2023-11-15 06:57:27 +0000] [4145] [INFO] Worker exiting (pid: 4145)
+[2023-11-15 14:57:27 +0800] [4710] [INFO] Booting worker with pid: 4710
+[2023-11-15 07:19:44 +0000] [4710] [INFO] Parent changed, shutting down: <Worker 4710>
+[2023-11-15 07:19:44 +0000] [4710] [INFO] Worker exiting (pid: 4710)
+[2023-11-15 07:19:45 +0000] [4149] [INFO] Parent changed, shutting down: <Worker 4149>
+[2023-11-15 07:19:45 +0000] [4149] [INFO] Worker exiting (pid: 4149)
