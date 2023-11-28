@@ -87,7 +87,8 @@ const locale: I18nType.Schema = {
       route: 'Route',
       user: 'User'
     },
-    about: 'About'
+    about: 'About',
+    modelPark: 'ModelPark'
   },
   layout: {
     settingDrawer: {

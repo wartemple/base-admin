@@ -396,6 +396,7 @@ declare namespace I18nType {
         user: string;
       };
       about: string;
+      modelPark: string;
     };
     layout: {
       settingDrawer: {
