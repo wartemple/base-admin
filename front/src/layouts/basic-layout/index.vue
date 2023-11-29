@@ -29,9 +29,9 @@
       <global-sider />
     </template>
     <global-content />
-    <template #footer>
+    <!-- <template #footer>
       <global-footer />
-    </template>
+    </template> -->
   </admin-layout>
   <n-back-top :key="theme.scrollMode" :listen-to="`#${app.scrollElId}`" class="z-100" />
   <setting-drawer />

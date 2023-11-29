@@ -1,13 +1,12 @@
 const modelPark: AuthRoute.Route = {
-  name: 'modelPark',
-  path: '/modelPark',
+  name: 'model-park',
+  path: '/model-park',
   component: 'self',
   meta: {
     title: '模型广场',
-    i18nTitle: 'routes.modelPark',
+    icon: 'mdi:menu',
     singleLayout: 'basic',
-    icon: 'fluent:book-information-24-regular',
-    order: 2
+    order: 1
   }
 };
 

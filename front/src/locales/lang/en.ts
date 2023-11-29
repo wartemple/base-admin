@@ -88,7 +88,7 @@ const locale: I18nType.Schema = {
       user: 'User'
     },
     about: 'About',
-    modelPark: 'ModelPark'
+    'model-park': 'model-park'
   },
   layout: {
     settingDrawer: {

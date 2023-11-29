@@ -1,25 +1,19 @@
 <template>
   <div class="h-full overflow-hidden">
-    <n-card title="模型广场"  class="h-full rounded-8px shadow-sm">
-      <n-space :vertical="true" class="h-650px border-separate" >
+    <n-card title="模型广场" class="h-full rounded-8px shadow-sm">
+      <n-space :vertical="true" class="h-650px border-separate">
         <loading-empty-wrapper class="h-650px" :loading="loading" :empty="empty">
           <n-layout :native-scrollbar="false">
-            <n-grid class="h-650px" cols="s:1 m:2 l:4" responsive="screen" :x-gap="16" :y-gap="16" >
-              <n-grid-item v-for="item in data" :key="item.id" >
-                <modelCard class="h-full rounded-8px shadow-sm b-1"/>
+            <n-grid class="h-650px" cols="s:1 m:2 l:4" responsive="screen" :x-gap="16" :y-gap="16">
+              <n-grid-item v-for="item in data" :key="item.id">
+                <modelCard class="h-full rounded-8px shadow-sm b-1" />
               </n-grid-item>
             </n-grid>
           </n-layout>
         </loading-empty-wrapper>
         <n-space justify="center" class="mt-20px">
-          <n-pagination
-            v-model:page="page"
-            v-model:page-size="pageSize"
-            :page-count="100"
-            show-size-picker
-          />
+          <n-pagination v-model:page="page" v-model:page-size="pageSize" :page-count="100" show-size-picker />
         </n-space>
-       
       </n-space>
     </n-card>
   </div>
@@ -44,18 +38,18 @@ interface DataSource {
 
 const { loading, startLoading, endLoading, empty, setEmpty } = useLoadingEmpty();
 const data = [
-  {id: 2},
-  {id: 1},
-  {id: 3},
-  {id: 4},
-  {id: 5},
-  {id: 6},
-  {id: 7},
-  {id: 8},
-  {id: 9},
-  {id: 10},
-  {id: 11},
-  {id: 12},
+  { id: 2 },
+  { id: 1 },
+  { id: 3 },
+  { id: 4 },
+  { id: 5 },
+  { id: 6 },
+  { id: 7 },
+  { id: 8 },
+  { id: 9 },
+  { id: 10 },
+  { id: 11 },
+  { id: 12 }
 ]
 
 const columns: DataTableColumn<DataSource>[] = [

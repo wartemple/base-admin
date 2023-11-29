@@ -88,7 +88,7 @@ const locale: I18nType.Schema = {
       user: '用户管理'
     },
     about: '关于',
-    modelPark: '模型广场'
+    'model-park': '模型广场'
   },
   layout: {
     settingDrawer: {

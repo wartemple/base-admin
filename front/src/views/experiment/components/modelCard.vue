@@ -1,6 +1,6 @@
 <template>
     <n-thing class="p-6" >
-        <template #avatar><n-avatar><n-icon><svg-icon local-icon="Affiliate" /></n-icon></n-avatar>
+        <template #avatar><n-avatar size="64px"><n-icon><svg-icon local-icon="Affiliate" /></n-icon></n-avatar>
         </template>
         <template  #header  > 货币 </template>
         <template #header-extra >
@@ -10,7 +10,7 @@
                     </template>
                     编辑
                 </n-button>
-                <n-button size="tiny">
+                <n-button size="tiny" @click="handleToTabDetail">
                     <template #icon><n-icon><svg-icon local-icon="ControlFilled" /> </n-icon>
                     </template>
                     精调模型
@@ -28,6 +28,13 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
+import { routeName } from '@/router';
+import { useRouterPush } from '@/composables';
+const { routerPush } = useRouterPush();
+
+function handleToTabDetail() {
+  routerPush({ name: routeName('function_tab-detail'), query: { name: 'abc' }, hash: '#DEMO_HASH' });
+}
 
 export default defineComponent({
     components: {},
