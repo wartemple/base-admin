@@ -50,3 +50,12 @@ declare namespace ApiUserManagement {
     userStatus: '1' | '2' | '3' | '4' | null;
   }
 }
+
+// declare namespace ApiExperimentConfigTemplateManagement {
+//   interface ExperimentConfigTemplate {
+//     /** 实验配置模板id */
+//     id: string;
+//     /** 实验配置模板名称 */
+//     name: string | null;
+//   }
+// }

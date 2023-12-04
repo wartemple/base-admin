@@ -44,10 +44,10 @@ INSTALLED_APPS = [
     'django_prometheus', # 监控接口访问情况
     'django_filters',
     'corsheaders',
-    'common'
-    # 功能packages
-    # 'captcha', # 验证码
-    # 'auditlog', # 审计日志包
+    'common',
+    'experiment',
+    'model',
+    'dataset'
 ]
 
 # drf_spectacular 配置
